@@ -9,6 +9,6 @@ import edu.wpi.first.shuffleboard.api.plugin.Plugin;
     version = "0.0.1",
     summary = "This is an example plugin for testing"
 )
-public class ExamplePlugin extends Plugin {
+public class LineTrackerWidget extends Plugin {
 
 }
