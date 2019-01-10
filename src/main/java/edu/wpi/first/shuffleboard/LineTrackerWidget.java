@@ -5,8 +5,8 @@ import edu.wpi.first.shuffleboard.api.plugin.Plugin;
 
 @Description(
     group = "edu.wpi.first.shuffleboard",
-    name = "Example Plugin",
-    version = "0.0.0",
+    name = "Line Tracker Widget",
+    version = "0.0.1",
     summary = "This is an example plugin for testing"
 )
 public class ExamplePlugin extends Plugin {

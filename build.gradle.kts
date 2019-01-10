@@ -1,24 +1,22 @@
-import java.net.URI
-
-group = "edu.wpi.first.shuffleboard"
-version = "1.0-SNAPSHOT"
-
-apply {
-    plugin("java")
+plugins {
+    `java-library`
 }
 
 repositories {
     mavenCentral()
     maven {
-        url = URI("http://first.wpi.edu/FRC/roborio/maven/release")
+        name = "WPILib"
+        setUrl("http://first.wpi.edu/FRC/roborio/maven/release")
     }
 }
 
 dependencies {
-    testCompile("junit", "junit", "4.12")
-    implementation(group = "edu.wpi.first.shuffleboard", name = "api", version = "1.0.0")
+    compileOnly(group = "edu.wpi.first.shuffleboard", name = "api", version = "2019.1.1")
 }
 
-configure<JavaPluginConvention> {
-    sourceCompatibility = JavaVersion.VERSION_1_8
+tasks.register<Copy>("installPlugin") {
+    from(tasks.named("jar"))
+    into("${System.getProperty("user.home")}/Shuffleboard/plugins")
+    description = "Builds the plugin JAR and installs it in the Shuffleboard plugins directory."
+    group = "Shuffleboard Plugin"
 }
